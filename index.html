@@ -11,9 +11,28 @@
         .details { text-align: left; margin: 25px 0; padding: 15px; background: #f8f9fa; border-radius: 10px; border-left: 4px solid #003366; }
         .details p { margin: 8px 0; font-size: 15px; color: #333; }
         .btn { display: block; width: 90%; padding: 15px; margin: 15px auto; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; text-decoration: none; color: white; text-align: center; }
-        .btn-save { background-color: #0056b3; }
+        .btn-save { background-color: #0056b3; margin-bottom: 15px; }
         .btn-web { background-color: #28a745; }
     </style>
+    <script>
+        function smartSaveContact() {
+            // Yaaru scan pandranga nu check pandrathu (Android aa illaya)
+            var isAndroid = /android/i.test(navigator.userAgent.toLowerCase());
+            
+            if (isAndroid) {
+                // Android Magic: Download aagama direct-aa Contacts app open aagum
+                var intentUrl = "intent://contacts/insert?name=Fortune%20Oilfield&company=Fortune%20Oilfield%20General%20Trading%20LLC&phone=+97142593456&email=sales@fortune-oilfield.com#Intent;action=android.intent.action.INSERT;type=vnd.android.cursor.dir/contact;end;";
+                window.location.href = intentUrl;
+            } else {
+                // iPhone / Desktop: Normal VCF call (iPhone la adhu direct-aa contacts thirakkum)
+                var vcardLink = document.createElement('a');
+                vcardLink.href = 'contact.vcf';
+                vcardLink.download = 'contact.vcf';
+                document.body.appendChild(vcardLink);
+                vcardLink.click();
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="card">
@@ -26,7 +45,8 @@
             <p>📍 P.O.Box: 122843, Abu Dhabi</p>
         </div>
 
-        <a href="contact.vcf" class="btn btn-save">📥 Save to Contacts</a>
+        <!-- Indha button thaan andha magic Javascript function-ai koopidum -->
+        <button onclick="smartSaveContact()" class="btn btn-save">📥 Save to Contacts</button>
         <a href="https://www.fortune-oilfield.com/" class="btn btn-web">🌐 Visit Website</a>
     </div>
 </body>
