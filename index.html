@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Saving Contact...</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            // Step 1: Auto-download the vCard file
+            var vcardLink = document.createElement('a');
+            vcardLink.href = 'contact.vcf'; // Ensure this matches your file name
+            vcardLink.download = 'contact.vcf';
+            document.body.appendChild(vcardLink);
+            vcardLink.click();
+
+            // Step 2: Auto-redirect to the company website after 2 seconds
+            // This gives the phone enough time to show the "Save Contact" prompt
+            setTimeout(function() {
+                window.location.href = "https://www.fortune-oilfield.com/";
+            }, 2000); 
+        };
+    </script>
+</head>
+<body style="font-family: Arial; text-align: center; margin-top: 50px;">
+    <h2>Saving Company Contact...</h2>
+    <p>Please click "Save" on the popup. Redirecting to our website...</p>
+</body>
+</html>
