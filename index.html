@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Saving Contact...</title>
-    <script type="text/javascript">
-        window.onload = function() {
-            // Step 1: Auto-download the vCard file
-            var vcardLink = document.createElement('a');
-            vcardLink.href = 'contact.vcf'; // Ensure this matches your file name
-            vcardLink.download = 'contact.vcf';
-            document.body.appendChild(vcardLink);
-            vcardLink.click();
-
-            // Step 2: Auto-redirect to the company website after 2 seconds
-            // This gives the phone enough time to show the "Save Contact" prompt
-            setTimeout(function() {
-                window.location.href = "https://www.fortune-oilfield.com/";
-            }, 2000); 
-        };
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortune Oilfield - Contact</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #eef2f3; margin: 0; padding: 20px; }
+        .card { background: white; padding: 30px 20px; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-width: 400px; margin: 30px auto; }
+        h2 { color: #003366; margin-bottom: 5px; }
+        p { color: #555; margin-top: 0; font-size: 16px; }
+        .details { text-align: left; margin: 25px 0; padding: 15px; background: #f8f9fa; border-radius: 10px; border-left: 4px solid #003366; }
+        .details p { margin: 8px 0; font-size: 15px; color: #333; }
+        .btn { display: block; width: 90%; padding: 15px; margin: 15px auto; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; text-decoration: none; color: white; text-align: center; }
+        .btn-save { background-color: #0056b3; }
+        .btn-web { background-color: #28a745; }
+    </style>
 </head>
-<body style="font-family: Arial; text-align: center; margin-top: 50px;">
-    <h2>Saving Company Contact...</h2>
-    <p>Please click "Save" on the popup. Redirecting to our website...</p>
+<body>
+    <div class="card">
+        <h2>Fortune Oilfield</h2>
+        <p>General Trading LLC</p>
+
+        <div class="details">
+            <p>📞 +971 4259 3456</p>
+            <p>📧 sales@fortune-oilfield.com</p>
+            <p>📍 P.O.Box: 122843, Abu Dhabi</p>
+        </div>
+
+        <a href="contact.vcf" class="btn btn-save">📥 Save to Contacts</a>
+        <a href="https://www.fortune-oilfield.com/" class="btn btn-web">🌐 Visit Website</a>
+    </div>
 </body>
 </html>
